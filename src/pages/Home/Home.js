@@ -1,10 +1,11 @@
 import React from 'react'
+import LayoutDefault from '../../components/LayoutDefault/LayoutDefault'
 
 function Home() {
     return (
-        <div>
+        <LayoutDefault>
             Home
-        </div>
+        </LayoutDefault>
     )
 }
 
