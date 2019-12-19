@@ -1,11 +1,12 @@
 import React from 'react'
-import LayoutDefault from '../../components/LayoutDefault/LayoutDefault'
+import Layout from '../../components/Layout/Layout'
+// import LayoutDefault from '../../components/LayoutDefault/LayoutDefault'
 
 function Home() {
     return (
-        <LayoutDefault>
+        <Layout>
             Home
-        </LayoutDefault>
+        </Layout>
     )
 }
 
