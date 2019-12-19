@@ -20,7 +20,7 @@ export default [
     component: () => <Home />,
   },
   {
-    path: '/profile',
+    path: '/settings',
     exact: true,
     auth: 1,
     redirect: '/login',

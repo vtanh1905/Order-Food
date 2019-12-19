@@ -17,14 +17,16 @@ export default class LayoutDefault extends Component {
   menu = () => {
     return (
       <Menu>
-        <Menu.Item key="0" className="d-flex align-items-center pr-5 btn-outline-primary">
-          <NavLink to='/profile'>
-          <Icon type="profile" /> Profile
-          </NavLink>
+        <Menu.Item key="0">
+          <a href="/settings" className="d-flex align-items-center pr-5 btn-outline-primary">
+            <Icon type="setting" className="mr-2"/> Settings
+          </a>
         </Menu.Item>
         <Menu.Divider />
-        <Menu.Item key="1" className="d-flex align-items-center pr-5 btn-outline-danger">
-          <Icon type="logout" /> Log out
+        <Menu.Item key="2">
+        <a href="/log-out" className="d-flex align-items-center pr-5 btn-outline-danger">
+          <Icon type="logout" className="mr-2"/> Log out
+        </a>
         </Menu.Item>
       </Menu>
     )
@@ -50,8 +52,8 @@ export default class LayoutDefault extends Component {
             </Form>
           </Navbar.Collapse>
         </Navbar>
-        <Content style={{ padding: '50px' }}>
-          <div style={{ background: '#fff', padding: 24 }} className='fill-content'>{this.props.children}</div>
+        <Content className="bg-secondary" style={{ padding: '40px'}}>
+          <div style={{ background: '#fff', padding: 20 }} className='fill-content'>{this.props.children}</div>
         </Content>
       </Layout>
     )
