@@ -3,6 +3,7 @@ import { Navbar, Nav, Form } from 'react-bootstrap';
 import { Select, Avatar, Dropdown, Menu, Icon, Layout } from 'antd';
 
 import './Layout.css';
+import { NavLink } from 'react-router-dom';
 
 const { Option } = Select;
 const { Content } = Layout;
@@ -17,7 +18,9 @@ export default class LayoutDefault extends Component {
     return (
       <Menu>
         <Menu.Item key="0" className="d-flex align-items-center pr-5 btn-outline-primary">
+          <NavLink to='/profile'>
           <Icon type="profile" /> Profile
+          </NavLink>
         </Menu.Item>
         <Menu.Divider />
         <Menu.Item key="1" className="d-flex align-items-center pr-5 btn-outline-danger">
