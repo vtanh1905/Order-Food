@@ -2,6 +2,7 @@ import React from 'react';
 
 import Home from '../../pages/Home/Home';
 import Login from '../../pages/Login/Login';
+import Profile from '../../pages/Profile/Profile';
 import NotFound from '../../pages/NotFound/NotFound';
 import Admin from '../../pages/admin';
 
@@ -24,7 +25,14 @@ export default [
     exact: true,
     auth: 0,
     redirect: '/admin',
-    component: () => <Admin />,
+    component: () => <Admin />
+  },
+  {
+    path: '/profile',
+    exact: true,
+    auth: 1,
+    redirect: '/login',
+    component: () => <Profile />,
   },
   {
     path: '/login',
