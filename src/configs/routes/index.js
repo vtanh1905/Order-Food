@@ -28,6 +28,13 @@ export default [
     component: () => <Admin />
   },
   {
+    path: '/admin/*',
+    exact: true,
+    auth: 0,
+    redirect: '/admin/*',
+    component: () => <Admin />
+  },
+  {
     path: '/profile',
     exact: true,
     auth: 1,
