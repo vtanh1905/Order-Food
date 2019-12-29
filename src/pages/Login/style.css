@@ -1,0 +1,36 @@
+.login {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.login .mimg {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    background-size: cover;
+}
+
+.login .container {
+    width: 30%;
+    height:  80%;
+    z-index: 1;
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    background-color:rgba(141, 135, 135, 0.3);
+    border-radius: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5%;
+}
+
+.login .bot {
+    position: absolute;
+    bottom: 0;
+    font-style: italic;
+}

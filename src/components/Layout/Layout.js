@@ -7,7 +7,7 @@ import './Layout.css';
 const { Option } = Select;
 const { Content } = Layout;
 
-export default class LayoutDefault extends Component {
+export default class LayoutHeader extends Component {
 
   handleChange(value) {
     console.log(`selected ${value}`);
