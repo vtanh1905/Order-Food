@@ -4,6 +4,8 @@ import "antd/dist/antd.css";
 import "./index.css";
 import { Table, Input, Button, Popconfirm, Form } from "antd";
 
+import CollectionCreateForm from "./CollectionCreateForm";
+
 const EditableContext = React.createContext();
 
 const EditableRow = ({ form, index, ...props }) => (
@@ -39,10 +41,22 @@ class EditableCell extends React.Component {
     });
   };
 
+  anyValidation = (rule, value, callback) => {
+    // const { form } = this.props;
+    if (value < 5) {
+      callback("Input exceed five characters limit");
+    } else if (value > 20) {
+      callback("Input exceed twenty characters limit");
+    } else {
+      callback();
+    }
+  };
+
   renderCell = form => {
     this.form = form;
     const { children, dataIndex, record, title } = this.props;
     const { editing } = this.state;
+
     return editing ? (
       <Form.Item style={{ margin: 0 }}>
         {form.getFieldDecorator(dataIndex, {
@@ -50,7 +64,12 @@ class EditableCell extends React.Component {
             {
               required: true,
               message: `${title} is required.`
-            }
+            },
+            dataIndex === "number" && {
+              pattern: /^(?:[1-9]\d*|\d)$/,
+              message: "Input must be a number"
+            },
+            dataIndex === "number" && { validator: this.anyValidation }
           ],
           initialValue: record[dataIndex]
         })(
@@ -102,16 +121,19 @@ class EditableTable extends React.Component {
       {
         title: "Meal",
         dataIndex: "meal",
-        editable: true
+        editable: true,
+        width: '200px'
       },
       {
         title: "Number of portion",
         dataIndex: "number",
-        editable: true
+        editable: true,
+        width: '200px'
       },
       {
         title: "operation",
         dataIndex: "operation",
+        width: '200px',
         render: (text, record) =>
           this.state.dataSource.length >= 1 ? (
             <div>
@@ -121,23 +143,23 @@ class EditableTable extends React.Component {
               >
                 <Button>Delete</Button>
               </Popconfirm>
-              <Button>Update</Button>
             </div>
           ) : null
       }
     ];
 
     this.state = {
+      visible: false,
       dataSource: [
         {
           key: "0",
           meal: "Pho",
-          number: "30"
+          number: 30
         },
         {
           key: "1",
           meal: "Bun",
-          number: "32"
+          number: 32
         }
       ],
       count: 2
@@ -149,12 +171,12 @@ class EditableTable extends React.Component {
     this.setState({ dataSource: dataSource.filter(item => item.key !== key) });
   };
 
-  handleAdd = () => {
+  handleAdd = ({ meal, number }) => {
     const { count, dataSource } = this.state;
     const newData = {
       key: count,
-      meal: `food ${count}`,
-      number: 10
+      meal,
+      number
     };
     this.setState({
       dataSource: [...dataSource, newData],
@@ -173,8 +195,32 @@ class EditableTable extends React.Component {
     this.setState({ dataSource: newData });
   };
 
+  showModal = () => {
+    console.log(this.state.visible);
+    this.setState({ visible: true });
+  };
+
+  handleCancel = () => {
+    this.setState({ visible: false });
+  };
+
+  handleCreate = () => {
+    const { form } = this.formRef.props;
+    form.validateFields((error, values) => {
+      if (error) {
+        return;
+      }
+      this.handleAdd(values)
+      this.setState({ visible: false });
+    });
+  };
+
+  saveFormRef = formRef => {
+    this.formRef = formRef;
+  };
+
   render() {
-    const { dataSource } = this.state;
+    const { dataSource, visible } = this.state;
     const components = {
       body: {
         row: EditableFormRow,
@@ -199,18 +245,25 @@ class EditableTable extends React.Component {
     return (
       <div>
         <Button
-          onClick={this.handleAdd}
+          onClick={this.showModal}
           type="primary"
           style={{ marginBottom: 16 }}
         >
-          Add a row
+          Add new food
         </Button>
+        <CollectionCreateForm
+          wrappedComponentRef={this.saveFormRef}
+          visible={visible}
+          onCancel={this.handleCancel}
+          onCreate={this.handleCreate}
+        />
         <Table
           components={components}
           rowClassName={() => "editable-row"}
           bordered
           dataSource={dataSource}
           columns={columns}
+          scroll={{ x: 600, y: 350 }}
         />
       </div>
     );
