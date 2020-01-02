@@ -29,7 +29,7 @@ export default function App() {
               <Menu.Item key="1">
                 <Link to="/admin/user">
                   <Icon type="user" />
-                  <span>Người dùng</span>
+                  <span>Tài khoản</span>
                 </Link>
               </Menu.Item>
               <Menu.Item key="2">
