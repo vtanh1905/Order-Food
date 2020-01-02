@@ -29,20 +29,20 @@ export default function App() {
             <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
               <Menu.Item key="1">
                 <Link to="/admin/user">
-                  <Icon type="pie-chart" />
-                  <span>Manage user</span>
+                  <Icon type="user" />
+                  <span>Người dùng</span>
                 </Link>
               </Menu.Item>
               <Menu.Item key="2">
                 <Link to="/admin/food">
-                  <Icon type="desktop" />
-                  <span>Manage food</span>
+                  <Icon type="apple" />
+                  <span>Thức ăn</span>
                 </Link>
               </Menu.Item>
               <Menu.Item key="3">
                 <Link to="/admin/order">
                   <Icon type="file" />
-                  <span>Manage order</span>
+                  <span>Đặt món</span>
                 </Link>
               </Menu.Item>
             </Menu>
