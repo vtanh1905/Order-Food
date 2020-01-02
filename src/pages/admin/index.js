@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import "antd/dist/antd.css";
 import { Layout, Menu, Icon } from "antd";
 
 import Order from "./order";
@@ -49,7 +48,7 @@ export default function App() {
           </Sider>
           <Layout>
             <Header style={{ background: "#fff", padding: 0 }} />
-            <Content style={{ margin: "0 16px", textAlign: "center" }}>
+            <Content style={{ margin: "0 16px" }}>
               <Switch>
                 <Route exact path={`/admin/user`}>
                   <User />

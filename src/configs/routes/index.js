@@ -43,7 +43,7 @@ export default [
   },
   {
     path: '/login',
-    exact: false,
+    exact: true,
     auth: -1,
     redirect: '/',
     component: () => <Login />,
