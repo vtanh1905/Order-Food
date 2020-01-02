@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Table, Button, Icon, Popconfirm, notification, Spin } from 'antd';
+import { Table, Button, Icon, Popconfirm, notification } from 'antd';
+import UserModal from './UserModal'
 
 const dataUser = [
   {
@@ -30,21 +31,22 @@ const dataUser = [
 
 function Index() {
   const [users, setUsers] = useState(dataUser)
-
+  const [visiableFormUserModal, setvisiableFormUserModal] = useState(false);
+  const [userSelected, setUserSelected] = useState(null)
   const columns = [
-    {
-      title: 'Họ tên',
-      dataIndex: 'fullname',
-    },
     {
       title: 'Tài khoản',
       dataIndex: 'username',
     },
     {
+      title: 'Họ tên',
+      dataIndex: 'fullname',
+    },
+    {
       title: 'Loại tài khoản',
       dataIndex: 'role',
       render: (text) => {
-        if (text === 'USER') return 'Học Sinh';
+        if (text === 'USER') return 'Người dùng';
         if (text === 'MANAGER') return 'Giáo lý';
         if (text === 'ADMIN') return 'Quản trị';
       },
@@ -72,10 +74,21 @@ function Index() {
       width: 200,
       render: (item) => (
         <>
-          <Button type="primary" size="small"><Icon type="edit" /></Button>{' '}
+          <Button type="primary" size="small" onClick={() => {
+            setUserSelected(item);
+            setvisiableFormUserModal(true);
+          }}
+          >
+            <Icon type="edit" />
+          </Button>{' '}
           <Popconfirm
             title="Bạn có muốn xóa không?"
-            // onConfirm={() => handeDeleteUser(item._id)}
+            onConfirm={() => {
+              setUsers(users.filter(user => user.username !== item.username));
+              notification.success({
+                message: 'Xóa tài khoản thành công',
+              });
+            }}
             // onCancel={cancel}
             okText="Có"
             cancelText="Không"
@@ -89,13 +102,20 @@ function Index() {
 
   return (
     <>
-      <h3 style={{ padding: '10px' }}>Tài khoản <Button type="primary" icon="plus" style={{ float: 'right' }} /></h3>
+      <h3 style={{ padding: '10px', textAlign: 'center' }}>Tài khoản <Button type="primary" icon="plus" onClick={() => setvisiableFormUserModal(true)} style={{ float: 'right' }} /></h3>
       <Table
         columns={columns}
         dataSource={users}
         bordered
         rowKey='_id'
         scroll={{ y: 410 }}
+      />
+      <UserModal
+        users={users}
+        setUsers={setUsers}
+        visiableFormUserModal={visiableFormUserModal}
+        setvisiableFormUserModal={setvisiableFormUserModal}
+        userSelected={userSelected}
       />
     </>
   );
