@@ -57,7 +57,7 @@ class Profile extends Component {
 
     return (
       <Layout>
-        <div className="clearfix profile">
+        <div className="profile">
           <Upload
             className="d-flex justify-content-center"
             action="https://www.mocky.io/v2/5cc8019d300000980a055e76"

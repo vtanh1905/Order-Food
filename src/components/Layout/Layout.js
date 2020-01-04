@@ -17,14 +17,16 @@ export default class LayoutHeader extends Component {
   menu = () => {
     return (
       <Menu>
-        <Menu.Item key="0" className="d-flex align-items-center pr-5 btn-outline-primary">
-          <NavLink to='/profile'>
-          <Icon type="profile" /> Profile
+        <Menu.Item key="0">
+          <NavLink className="d-flex align-items-center pr-5 btn-outline-primary" to='/profile'>
+          <Icon type="profile" style={{marginRight: 8}} /> Profile
           </NavLink>
         </Menu.Item>
         <Menu.Divider />
-        <Menu.Item key="1" className="d-flex align-items-center pr-5 btn-outline-danger">
-          <Icon type="logout" /> Log out
+        <Menu.Item key="1">
+        <a className="d-flex align-items-center pr-5 btn-outline-danger" href='/' onClick={() => {localStorage.clear()}}>
+          <Icon type="logout" style={{marginRight: 8}} /> Log out
+          </a>
         </Menu.Item>
       </Menu>
     )
@@ -34,7 +36,7 @@ export default class LayoutHeader extends Component {
     return (
       <Layout className="layout">
         <Navbar className="shadow" bg="light" expand="lg">
-          <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+          <Navbar.Brand href="/">React-Bootstrap</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">

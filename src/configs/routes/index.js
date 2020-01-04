@@ -23,15 +23,15 @@ export default [
   {
     path: '/admin',
     exact: true,
-    auth: 0,
-    redirect: '/admin',
+    auth: 1,
+    redirect: '/login',
     component: () => <Admin />
   },
   {
     path: '/admin/*',
     exact: true,
-    auth: 0,
-    redirect: '/admin/*',
+    auth: 1,
+    redirect: '/login',
     component: () => <Admin />
   },
   {
