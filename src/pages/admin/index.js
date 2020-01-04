@@ -46,7 +46,7 @@ export default function App() {
               <Menu.Item key="3">
                 <Link to="/admin/order" className="d-flex align-items-center">
                   <Icon type="file" />
-                  <span>Manage order</span>
+                  <span>Đặt món</span>
                 </Link>
               </Menu.Item>
               <Menu.Item key="4">
@@ -59,7 +59,7 @@ export default function App() {
           </Sider>
           <Layout>
             <Header style={{ background: "#fff", padding: 0 }} />
-            <Content style={{ margin: "0 16px", textAlign: "center" }}>
+            <Content style={{ margin: "0 16px" }}>
               <Switch>
                 <Route exact path={`/admin/user`}>
                   <User />
