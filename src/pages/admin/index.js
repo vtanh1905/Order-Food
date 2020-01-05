@@ -7,6 +7,7 @@ import './index.css';
 import Order from "./order";
 import Food from "./food";
 import User from "./user";
+import Statistic from "./statistic";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -34,26 +35,32 @@ export default function App() {
             <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
               <Menu.Item key="1">
                 <Link to="/admin/user" className="d-flex align-items-center">
-                  <Icon type="pie-chart" />
-                  <span>Manage user</span>
+                  <Icon type="user" />
+                  <span>Người dùng</span>
                 </Link>
               </Menu.Item>
               <Menu.Item key="2">
                 <Link to="/admin/food" className="d-flex align-items-center">
                   <Icon type="desktop" />
-                  <span>Manage food</span>
+                  <span>Thức ăn</span>
                 </Link>
               </Menu.Item>
               <Menu.Item key="3">
                 <Link to="/admin/order" className="d-flex align-items-center">
                   <Icon type="file" />
-                  <span>Đặt món</span>
+                  <span>Đơn hàng</span>
                 </Link>
               </Menu.Item>
               <Menu.Item key="4">
+                <Link to="/admin/statistic" className="d-flex align-items-center">
+                  <Icon type="line-chart" />
+                  <span>Thống kê</span>
+                </Link>
+              </Menu.Item>
+              <Menu.Item key="5">
                 <div className="d-flex align-items-center" onClick={() => { window.location.replace('/'); localStorage.clear() }}>
                   <Icon type="logout" />
-                  <span>Log out</span>
+                  <span>Đăng xuất</span>
                 </div>
               </Menu.Item>
             </Menu>
@@ -70,6 +77,9 @@ export default function App() {
                 </Route>
                 <Route path={`/admin/order`}>
                   <Order />
+                </Route>
+                <Route path={`/admin/statistic`}>
+                  <Statistic />
                 </Route>
                 <Route component={NoMatch} />
               </Switch>
