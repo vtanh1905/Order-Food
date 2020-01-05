@@ -12,7 +12,7 @@ const dataUser = [
   {
     fullname: "Trương Lê Việt Danh",
     username: 'danh.trương',
-    role: 'MANAGER',
+    role: 'ADMIN',
     isLocked: false
   },
   {
@@ -104,7 +104,7 @@ function Index() {
 
   return (
     <div>
-      <h3 style={{ padding: '10px', textAlign: 'center' }}>Tài khoản <Button type="primary" icon="plus" onClick={() => setvisiableFormUserModal(true)} style={{ float: 'right' }} /></h3>
+      <h3 style={{ padding: '10px', textAlign: 'center' }}>Tài khoản <Button type="primary" icon="plus" onClick={() => { setvisiableFormUserModal(true); setUserSelected(null) }} style={{ float: 'right' }} /></h3>
       <Table
         columns={columns}
         dataSource={users}

@@ -89,7 +89,7 @@ const UserModal = (props) => {
               })(
                 <Select>
                   <Option value="USER">Người dùng</Option>
-                  <Option value="MANAGER">Giáo lý</Option>
+                  {/* <Option value="MANAGER">Giáo lý</Option> */}
                   <Option value="ADMIN">Quản trị</Option>
                 </Select>,
               )}
