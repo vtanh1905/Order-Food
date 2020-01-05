@@ -12,7 +12,7 @@ const dataUser = [
   {
     fullname: "Trương Lê Việt Danh",
     username: 'danh.trương',
-    role: 'MANAGER',
+    role: 'ADMIN',
     isLocked: false
   },
   {
@@ -56,31 +56,31 @@ function Index() {
       dataIndex: 'isLocked',
       render: (text) => {
         // eslint-disable-next-line curly
-        if (text === false) return <div>
+        if (text === false) return <div className="d-flex align-items-center">
           <Icon type="check-circle" theme="twoTone" twoToneColor="#52c41a" />
-          <span>{' '}</span>Hoạt động
+          <span className="ml-1">Hoạt động</span>
         </div>;
         // eslint-disable-next-line curly
-        if (text === true) return <div>
+        if (text === true) return <div className="d-flex align-items-center">
           <Icon type="minus-circle" theme="twoTone" twoToneColor="#f5222d" />
-          <span>{' '}</span>Tạm khóa
+          <span className="ml-1">Tạm khóa</span>
         </div>;
       },
     },
     {
-      title: 'Tắc vụ',
+      title: 'Tác vụ',
       key: 'action',
       // fixed: 'right',
       width: 200,
       render: (item) => (
-        <>
-          <Button type="primary" size="small" onClick={() => {
+        <div className="d-flex align-items-center">
+          <Button className="mr-2 d-flex align-items-center" type="primary" size="small" onClick={() => {
             setUserSelected(item);
             setvisiableFormUserModal(true);
           }}
           >
-            <Icon type="edit" />
-          </Button>{' '}
+            <Icon type="edit" />Edit
+          </Button>
           <Popconfirm
             title="Bạn có muốn xóa không?"
             onConfirm={() => {
@@ -93,16 +93,18 @@ function Index() {
             okText="Có"
             cancelText="Không"
           >
-            <Button type="danger" size="small"><Icon type="delete" /></Button>
+            <Button className="d-flex align-items-center" type="danger" size="small">
+              <Icon type="delete" />Delete
+            </Button>
           </Popconfirm>
-        </>
+        </div>
       ),
     },
   ];
 
   return (
-    <>
-      <h3 style={{ padding: '10px', textAlign: 'center' }}>Tài khoản <Button type="primary" icon="plus" onClick={() => setvisiableFormUserModal(true)} style={{ float: 'right' }} /></h3>
+    <div>
+      <h3 style={{ padding: '10px', textAlign: 'center' }}>Tài khoản <Button type="primary" icon="plus" onClick={() => { setvisiableFormUserModal(true); setUserSelected(null) }} style={{ float: 'right' }} /></h3>
       <Table
         columns={columns}
         dataSource={users}
@@ -117,7 +119,7 @@ function Index() {
         setvisiableFormUserModal={setvisiableFormUserModal}
         userSelected={userSelected}
       />
-    </>
+    </div>
   );
 }
 

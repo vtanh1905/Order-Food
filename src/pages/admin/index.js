@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-ro
 import "antd/dist/antd.css";
 import { Layout, Menu, Icon } from "antd";
 
+import './index.css';
 import Order from "./order";
 import Food from "./food";
 import User from "./user";

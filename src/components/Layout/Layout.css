@@ -8,4 +8,5 @@
   
   .fill-content{
     min-height: calc(100vh - 64px - 100px)!important;
+    margin: 30px;
   }

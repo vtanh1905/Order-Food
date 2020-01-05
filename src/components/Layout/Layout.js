@@ -52,8 +52,8 @@ export default class LayoutHeader extends Component {
             </Form>
           </Navbar.Collapse>
         </Navbar>
-        <Content style={{ padding: '50px' }}>
-          <div style={{ background: '#fff', padding: 24 }} className='fill-content'>{this.props.children}</div>
+        <Content>
+          <div style={{ background: '#fff' }} className='fill-content'>{this.props.children}</div>
         </Content>
       </Layout>
     )
