@@ -6,16 +6,25 @@
 }
 
 .profile {
-    max-width: 900px !important;
+    width: 100%;
+    overflow: hidden;    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 20%;
+    padding-right: 20%;
 }
 
 .profile-picture {
     height: 200px;
     margin: 20px;
     padding: 20px !important;
+    width: 100%;
 }
 
 .profile-info{
     margin: 20px;
     padding: 50px !important;
+    width: 100%;
+
 }
