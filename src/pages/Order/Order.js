@@ -2,7 +2,7 @@ import React from 'react';
 import LayoutHeader from '../../components/Layout/Layout';
 import {
   Layout, Col, Divider, Row, Icon, Card, Tabs, Drawer, Avatar, Input, Form, Button,
-  Checkbox, List, Badge, notification
+  Checkbox, List, Badge, notification, Modal,
 } from 'antd';
 import moment from 'moment';
 
@@ -10,7 +10,7 @@ import './style.css';
 
 const { Content, Sider } = Layout;
 const { TabPane } = Tabs;
-
+const { confirm } = Modal;
 class Order extends React.Component {
   constructor(props) {
     super(props);
@@ -477,6 +477,10 @@ class Order extends React.Component {
             numberMain: tab === 'MAIN' ? numberMain - 1 : numberMain,
             numberDessert: tab === 'DESSERT' ? numberDessert - 1 : numberDessert,
           })
+        } else if(tab === 'MAIN' && numberMain === 0) {
+          this.openNotificationWithIcon('error', 'Số lượng món chính trong ngày của bạn đã hết!');
+        } else if(tab === 'DESSERT' && numberMain === 0) {
+          this.openNotificationWithIcon('error', 'Số lượng món tráng miệng trong ngày của bạn đã hết!');
         }
       }
     });
@@ -501,13 +505,21 @@ class Order extends React.Component {
   }
 
   handleSubmitFood = () => {
-    this.setState({ loading: true }, () => {
-      setTimeout(() => {
-        this.setState({ ordered: [], loading: false }, () => {
-          this.openNotificationWithIcon('success', 'The Foods have been ordered Sucessfully!')
+    confirm({
+      title: 'Xác nhận đơn hàng',
+      content: 'Bạn có chắc chắn sẽ đặt đơn hàng này?',
+      onOk: () => {
+        
+        this.setState({ loading: true }, () => {
+          setTimeout(() => {
+            this.setState({ ordered: [], loading: false }, () => {
+              this.openNotificationWithIcon('success', 'Đặt món ăn thành công!')
+            });
+          }, 2000)
         });
-      }, 2000)
+      }
     });
+    
   }
 
   openNotificationWithIcon = (type, value) => {

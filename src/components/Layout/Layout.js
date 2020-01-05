@@ -57,7 +57,7 @@ export default class LayoutHeader extends Component {
                 <Option value="lunch">Lunch meal</Option>
               </Select>
               <Dropdown overlay={this.menu}>
-                <Avatar className="ml-3" size="large" icon="user" />
+                <Avatar className="ml-3" size="large" icon="user" src={JSON.parse(localStorage.getItem('user')).url.thumbUrl} />
               </Dropdown>
             </Form>
           </Navbar.Collapse>
