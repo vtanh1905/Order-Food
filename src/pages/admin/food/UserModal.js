@@ -18,26 +18,38 @@ const UserModal = props => {
   const handleSubmit = e => {
     e.preventDefault();
     props.form.validateFields((err, values) => {
-      console.log(tags, values, imgUrl);
-      // if (!err) {
-      //   // console.log('Received values of form: ', values);
-      //   if (!userSelected) {
-      //     setUsers([...users, { ...values }]);
-      //     notification.success({
-      //       message: "Thêm món ăn thành công"
-      //     });
-      //   } else {
-      //     const indexUserEdit = users.findIndex(
-      //       user => user.username === userSelected.username
-      //     );
-      //     users[indexUserEdit] = values;
-      //     setUsers(users);
-      //     notification.success({
-      //       message: "Cập nhật món ăn thành công"
-      //     });
-      //   }
+      const newObject = {
+        id: users[users.length - 1].id + 1,
+        key: users[users.length - 1].id + 1,
+        src: imgUrl,
+        name: values.name,
+        type: values.type,
+        cost: values.cost,
+        description: values.description,
+        options: tags
+      };
+      console.log(newObject, users);
+      if (!err) {
+        // console.log('Received values of form: ', values);
+        console.log(!userSelected, imgUrl);
+        if (!userSelected) {
+          setUsers([...users, { ...newObject }]);
+          notification.success({
+            message: "Thêm món ăn thành công"
+          });
+        } else {
+          const indexUserEdit = users.findIndex(
+            user => user.id === userSelected.id
+          );
+          users[indexUserEdit] = newObject;
+          setUsers(users);
+          notification.success({
+            message: "Cập nhật món ăn thành công"
+          });
+        }
+      }
 
-      //   setvisiableFormUserModal(false);
+      setvisiableFormUserModal(false);
       //   form.resetFields();
       // }
     });
