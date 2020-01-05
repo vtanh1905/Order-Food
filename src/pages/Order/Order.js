@@ -538,7 +538,7 @@ class Order extends React.Component {
                           {/* <Col span={3}><Icon type="star" /></Col> */}
                           <Col span={24} offset={0}><h5 style={{ color: '#191970' }}>{item.title}</h5></Col></div> :
                         <div>
-                          <Col span={3}><Icon type="coffee" /></Col>
+                          {/* <Col span={3}><Icon type="coffee" /></Col> */}
                           <Col span={20} offset={0}><h5 style={{ color: 'green' }}>{item.title}</h5></Col>
                         </div>}
                       description={<div><Row>{item.description}</Row>
