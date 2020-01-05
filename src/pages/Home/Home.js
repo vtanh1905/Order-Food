@@ -1,6 +1,6 @@
 import React from 'react'
 import LayoutHeader from '../../components/Layout/Layout';
-import { Carousel, Avatar, Row, Divider, Col, Card } from 'antd';
+import { Carousel, Row, Divider, Col, Card } from 'antd';
 import { useHistory } from "react-router-dom";
 import './style.css';
 
@@ -8,7 +8,7 @@ function Order() {
   let history = useHistory();
 
   const handleClickFood = (index) => {
-    if(index === 1) {
+    if (index === 1) {
       history.push('/order');
     }
     else {
@@ -20,7 +20,6 @@ function Order() {
       <Carousel autoplay style={{ width: '100%', height: '100%', position: 'fixed', top: 55, left: 0, zIndex: 1 }} >
         <div>
           <img src="https://initiate.alphacoders.com/images/772/stretched-1920-1080-772596.jpg?1988" alt=""></img>
-          {}
         </div>
         <div>
           <img src="https://initiate.alphacoders.com/images/492/stretched-1920-1080-49262.jpg?2327" alt=""></img>
@@ -31,12 +30,11 @@ function Order() {
         <div>
           <img src="https://initiate.alphacoders.com/images/464/stretched-1920-1080-464030.jpg?5439" alt=""></img>
         </div>
-        
       </Carousel>
-      <div style={{width: '100%', height: '100%', position: 'fixed', top: 55, left: '0%', zIndex: 2, background: 'black', opacity: 0.3 }}></div>
-      <div style={{width: '60%', height: '70%', position: 'fixed', top: '10%', left: '20%', zIndex: 3 }}>
-      <div className="container">
-          <Row><Avatar size={100} src="https://image.flaticon.com/icons/png/512/2362/2362817.png" shape="square" style={{ marginBottom: 20 }}></Avatar></Row>
+      <div style={{ width: '100%', height: '100%', position: 'fixed', top: 55, left: '0%', zIndex: 2, background: 'black', opacity: 0.3 }}></div>
+      <div style={{ width: '60%', height: '70%', position: 'fixed', top: '10%', left: '20%', zIndex: 3 }}>
+        <div className="container">
+          {/* <Row><Avatar size={100} src="https://image.flaticon.com/icons/png/512/2362/2362817.png" shape="square" style={{ marginBottom: 20 }}></Avatar></Row> */}
           <Row><h1 style={{ color: 'black' }}>Chào mừng bạn đến với Lunch App</h1></Row>
           <Divider></Divider>
           <Row style={{ width: '100%', marginTop: 10, height: '40%' }}>
@@ -64,13 +62,13 @@ function Order() {
             </Col>
           </Row>
           <Row className='bot' style={{ paddingTop: 50 }}></Row>
-          
-          
+
+
         </div>
       </div>
 
     </LayoutHeader>
-      
+
   )
 }
 

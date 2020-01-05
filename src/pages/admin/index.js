@@ -8,7 +8,7 @@ import {
   withRouter
 } from "react-router-dom";
 import "antd/dist/antd.css";
-import { Layout, Menu, Icon } from "antd";
+import { Layout, Menu, Icon, Affix } from "antd";
 
 import "./index.css";
 import Order from "./order";
@@ -30,61 +30,64 @@ function App({ location }) {
     <Router>
       <div>
         <Layout style={{ minHeight: "100vh" }}>
-          <Sider
-            collapsible
-            collapsed={collapsed}
-            onCollapse={value => onCollapse(value)}
-          >
-            <div className="logo" />
-            <Menu
-              theme="dark"
-              defaultSelectedKeys={[`${location.pathname}`]}
-              mode="inline"
+          <Affix offsetTop={0}>
+            <Sider
+              collapsible
+              collapsed={collapsed}
+              onCollapse={value => onCollapse(value)}
+              style={{ height: "100vh" }}
             >
-              <Menu.Item key="/admin/user">
-                <Link to="/admin/user" className="d-flex align-items-center">
-                  <Icon type="user" />
-                  <span>Người dùng</span>
-                </Link>
-              </Menu.Item>
-              <Menu.Item key="/admin/food">
-                <Link to="/admin/food" className="d-flex align-items-center">
-                  <Icon type="desktop" />
-                  <span>Thức ăn</span>
-                </Link>
-              </Menu.Item>
-              <Menu.Item key="/admin/order">
-                <Link to="/admin/order" className="d-flex align-items-center">
-                  <Icon type="file" />
-                  <span>Đơn hàng</span>
-                </Link>
-              </Menu.Item>
-              <Menu.Item key="/admin/statistic">
-                <Link
-                  to="/admin/statistic"
-                  className="d-flex align-items-center"
-                >
-                  <Icon type="line-chart" />
-                  <span>Thống kê</span>
-                </Link>
-              </Menu.Item>
-              <Menu.Item key="5">
-                <div
-                  className="d-flex align-items-center"
-                  onClick={() => {
-                    window.location.replace("/");
-                    localStorage.clear();
-                  }}
-                >
-                  <Icon type="logout" />
-                  <span>Đăng xuất</span>
-                </div>
-              </Menu.Item>
-            </Menu>
-          </Sider>
+              <div className="logo" />
+              <Menu
+                theme="dark"
+                defaultSelectedKeys={[`${location.pathname}`]}
+                mode="inline"
+              >
+                <Menu.Item key="/admin/user">
+                  <Link to="/admin/user" className="d-flex align-items-center">
+                    <Icon type="user" />
+                    <span>Người dùng</span>
+                  </Link>
+                </Menu.Item>
+                <Menu.Item key="/admin/food">
+                  <Link to="/admin/food" className="d-flex align-items-center">
+                    <Icon type="desktop" />
+                    <span>Thức ăn</span>
+                  </Link>
+                </Menu.Item>
+                <Menu.Item key="/admin/order">
+                  <Link to="/admin/order" className="d-flex align-items-center">
+                    <Icon type="file" />
+                    <span>Đơn hàng</span>
+                  </Link>
+                </Menu.Item>
+                <Menu.Item key="/admin/statistic">
+                  <Link
+                    to="/admin/statistic"
+                    className="d-flex align-items-center"
+                  >
+                    <Icon type="line-chart" />
+                    <span>Thống kê</span>
+                  </Link>
+                </Menu.Item>
+                <Menu.Item key="5">
+                  <div
+                    className="d-flex align-items-center"
+                    onClick={() => {
+                      window.location.replace("/");
+                      localStorage.clear();
+                    }}
+                  >
+                    <Icon type="logout" />
+                    <span>Đăng xuất</span>
+                  </div>
+                </Menu.Item>
+              </Menu>
+            </Sider>
+          </Affix>
           <Layout>
             <Header style={{ background: "#fff", padding: 0 }} />
-            <Content style={{ margin: "0 16px" }}>
+            <Content style={{ margin: "0 16", paddingLeft: 30, paddingRight: 30 }}>
               <Switch>
                 <Route exact path={`/admin/user`}>
                   <User />
