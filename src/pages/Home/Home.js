@@ -692,6 +692,7 @@ class Home extends React.Component {
                         offset={(el.id + 2) % 3 === 0 ? 1 : 2}
                         style={{
                           display: "flex",
+                          flexWrap:`wrap`,
                           alignItems: "center",
                           flexDirection: "column",
                           marginBottom: 20,
