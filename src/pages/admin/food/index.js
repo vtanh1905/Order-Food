@@ -5,7 +5,7 @@ import {
   Icon,
   Popconfirm,
   notification,
-  Upload,
+  // Upload,
   Descriptions,
   Avatar
 } from "antd";
@@ -335,27 +335,27 @@ function Index() {
   const [users, setUsers] = useState(dataUser);
   const [visiableFormUserModal, setvisiableFormUserModal] = useState(false);
   const [userSelected, setUserSelected] = useState(null);
-  const imageComponent = record => {
-    const list = [
-      {
-        uid: "-1",
-        name: record.name,
-        status: "done",
-        url: record.src,
-        thumbUrl: record.src
-      }
-    ];
-    // console.log({ record, users });
-    return (
-      <Upload
-        showUploadList={{ showDownloadIcon: false, showRemoveIcon: false }}
-        action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-        listType="picture"
-        defaultFileList={list}
-        className="upload-list-inline"
-      />
-    );
-  };
+  // const imageComponent = record => {
+  //   const list = [
+  //     {
+  //       uid: "-1",
+  //       name: record.name,
+  //       status: "done",
+  //       url: record.src,
+  //       thumbUrl: record.src
+  //     }
+  //   ];
+  //   // console.log({ record, users });
+  //   return (
+  //     <Upload
+  //       showUploadList={{ showDownloadIcon: false, showRemoveIcon: false }}
+  //       action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+  //       listType="picture"
+  //       defaultFileList={list}
+  //       className="upload-list-inline"
+  //     />
+  //   );
+  // };
   const columns = [
     {
       title: "Hình ảnh",
