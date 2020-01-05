@@ -54,23 +54,24 @@ class Profile extends Component {
     );
 
     return (
-      <Layout className="profile">
-        <div className="profile-picture">
-          <Upload
-            className="d-flex justify-content-center"
-            action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-            listType="picture-card"
-            fileList={fileList}
-            onPreview={this.handlePreview}
-            onChange={this.handleChange}
-          >
-            {fileList.length >= 1 ? null : uploadButton}
-          </Upload>
-          <Modal visible={previewVisible} footer={null} onCancel={this.handleCancel}>
-            <img alt="example" style={{ width: '100%' }} src={previewImage} />
-          </Modal>
-        </div>
-        <div className="profile-info">
+      <Layout>
+        <div className="profile">
+          <div className="profile-picture">
+            <Upload
+              className="d-flex justify-content-center"
+              action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+              listType="picture-card"
+              fileList={fileList}
+              onPreview={this.handlePreview}
+              onChange={this.handleChange}
+            >
+              {fileList.length >= 1 ? null : uploadButton}
+            </Upload>
+            <Modal visible={previewVisible} footer={null} onCancel={this.handleCancel}>
+              <img alt="example" style={{ width: '100%' }} src={previewImage} />
+            </Modal>
+          </div>
+          <div className="profile-info">
           <Form.Item id="fullname" label="Họ tên" >
             {getFieldDecorator('fullname', {
               rules: [{ required: true, message: 'Vui lòng nhập họ tên' }],
@@ -105,10 +106,11 @@ class Profile extends Component {
             )}
           </Form.Item>
           <Form.Item>
-            <Button type="primary" htmlType="submit" className="login-form-button">
+            <Button type="primary" htmlType="submit" className="login-form-button" style={{ width: '100%'}}>
               Cập nhật
             </Button>
           </Form.Item>
+        </div>
         </div>
       </Layout>
     )
