@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
-import { Upload, Icon, Modal, Form, Input, Select, Button } from 'antd';
+import { Upload, Icon, Modal, Form, Input, Select, Button, message, Menu, Layout } from 'antd';
 
-import Layout from '../../components/Layout/Layout'
+import LayoutDefault from '../../components/Layout/Layout'
 import './Profile.css'
 
 const { Option } = Select;
+const { SubMenu } = Menu;
+const { Content, Sider } = Layout;
 
 function getBase64(file) {
   return new Promise((resolve, reject) => {
@@ -19,6 +21,7 @@ class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      page: '1',
       previewVisible: false,
       previewImage: '',
       fileList: [],
@@ -45,13 +48,39 @@ class Profile extends Component {
     this.setState({ fileList: newFileList })
   };
 
+  handleSubmit = e => {
+    e.preventDefault();
+    this.props.form.validateFieldsAndScroll((err, values) => {
+      if (!err) {
+        console.log('Received values of form: ', values);
+        message.loading('Updating...', 2, () => message.success('Update successful'));
+      }
+    });
+  };
+
+  handleMenuChange = e => {
+    console.log('click ', e);
+    this.setState({
+      page: e.key,
+    });
+  };
+
+  compareToFirstPassword = (rule, value, callback) => {
+    const { form } = this.props;
+    if (value && value !== form.getFieldValue('password')) {
+      callback('Two passwords that you enter is inconsistent!');
+    } else {
+      callback();
+    }
+  };
+
   render() {
     const { previewVisible, previewImage, fileList } = this.state;
     const { getFieldDecorator } = this.props.form;
     const uploadButton = (
       <div>
-        <Icon type="plus" />
-        <div className="ant-upload-text">Upload</div>
+        <Icon type="plus" style={{ fontSize: 30 }} />
+        <div className="ant-upload-text" style={{ fontSize: 20 }}>Upload</div>
       </div>
     );
 
