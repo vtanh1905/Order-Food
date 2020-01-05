@@ -6,7 +6,8 @@ import {
   Popconfirm,
   notification,
   Upload,
-  Descriptions
+  Descriptions,
+  Avatar
 } from "antd";
 import FoodModal from "./UserModal";
 
@@ -357,14 +358,16 @@ function Index() {
   };
   const columns = [
     {
+      title: "Hình ảnh",
+      dataIndex: "src",
+      width: 120,
+      render: text => <Avatar size={80} src={text} />
+    },
+    {
       title: "Tên món ăn",
       dataIndex: "name"
     },
-    {
-      title: "Hình ảnh",
-      dataIndex: "src",
-      render: (text, record) => imageComponent(record)
-    },
+
     {
       title: "Món thêm",
       dataIndex: "options",
