@@ -449,7 +449,7 @@ function Index() {
         />
       </h3>
       <Table
-        pagination={{ pageSize: 5 }}
+        pagination={{ pageSize: 7 }}
         columns={columns}
         expandedRowRender={record => (
           <Descriptions>
@@ -461,7 +461,7 @@ function Index() {
         dataSource={users}
         bordered
         rowKey="_id"
-        scroll={{ y: 410 }}
+        scroll={{ y: 700 }}
       />
       <FoodModal
         users={users}

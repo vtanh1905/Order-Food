@@ -35,8 +35,19 @@ export default class LayoutHeader extends Component {
   render() {
     return (
       <Layout className="layout">
-        <Navbar className="shadow" bg="light" expand="lg">
-          <Navbar.Brand href="/">React-Bootstrap</Navbar.Brand>
+        <Navbar className="shadow" bg="light" expand="lg" style={{ zIndex: 3 }}>
+          <Navbar.Brand href="/">
+            <img
+              src="https://www.upsieutoc.com/images/2020/01/05/logo.jpg"
+              alt="logo.jpg"
+              border="0"
+              // style={{ width: `50%`, height: `50%` }}
+              style={{position: `absolute`,
+                top: `10px`,
+                left: `10px`
+            }}
+            />{" "}
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
@@ -44,7 +55,6 @@ export default class LayoutHeader extends Component {
             <Form inline>
               <Select defaultValue="lunch" style={{ width: 150 }} onChange={this.handleChange}>
                 <Option value="lunch">Lunch meal</Option>
-                <Option value="tea">Tea break</Option>
               </Select>
               <Dropdown overlay={this.menu}>
                 <Avatar className="ml-3" size="large" icon="user" />
