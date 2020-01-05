@@ -8,7 +8,7 @@ import { NavLink } from 'react-router-dom';
 const { Option } = Select;
 const { Content } = Layout;
 
-export default class LayoutDefault extends Component {
+export default class LayoutHeader extends Component {
 
   handleChange(value) {
     console.log(`selected ${value}`);
@@ -18,15 +18,15 @@ export default class LayoutDefault extends Component {
     return (
       <Menu>
         <Menu.Item key="0">
-          <a href="/settings" className="d-flex align-items-center pr-5 btn-outline-primary">
-            <Icon type="setting" className="mr-2"/> Settings
-          </a>
+          <NavLink className="d-flex align-items-center pr-5 btn-outline-primary" to='/profile'>
+          <Icon type="profile" style={{marginRight: 8}} /> Profile
+          </NavLink>
         </Menu.Item>
         <Menu.Divider />
-        <Menu.Item key="2">
-        <a href="/log-out" className="d-flex align-items-center pr-5 btn-outline-danger">
-          <Icon type="logout" className="mr-2"/> Log out
-        </a>
+        <Menu.Item key="1">
+        <a className="d-flex align-items-center pr-5 btn-outline-danger" href='/' onClick={() => {localStorage.clear()}}>
+          <Icon type="logout" style={{marginRight: 8}} /> Log out
+          </a>
         </Menu.Item>
       </Menu>
     )
@@ -36,7 +36,7 @@ export default class LayoutDefault extends Component {
     return (
       <Layout className="layout">
         <Navbar className="shadow" bg="light" expand="lg">
-          <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+          <Navbar.Brand href="/">React-Bootstrap</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">

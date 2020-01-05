@@ -4,6 +4,7 @@ import Home from '../../pages/Home/Home';
 import Login from '../../pages/Login/Login';
 import Profile from '../../pages/Profile/Profile';
 import NotFound from '../../pages/NotFound/NotFound';
+import Admin from '../../pages/admin';
 
 /**
 |--------------------------------------------------
@@ -20,7 +21,21 @@ export default [
     component: () => <Home />,
   },
   {
-    path: '/settings',
+    path: '/admin',
+    exact: true,
+    auth: 1,
+    redirect: '/login',
+    component: () => <Admin />
+  },
+  {
+    path: '/admin/*',
+    exact: true,
+    auth: 1,
+    redirect: '/login',
+    component: () => <Admin />
+  },
+  {
+    path: '/profile',
     exact: true,
     auth: 1,
     redirect: '/login',
@@ -28,7 +43,7 @@ export default [
   },
   {
     path: '/login',
-    exact: false,
+    exact: true,
     auth: -1,
     redirect: '/',
     component: () => <Login />,
