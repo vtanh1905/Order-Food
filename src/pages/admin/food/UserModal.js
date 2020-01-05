@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Drawer, Form, Button, Row, Input, Select, notification } from "antd";
+import { Drawer, Form, Button, Row, Input, Select } from "antd";
 import Image from "./Image";
 import EditableTagGroup from "./EditableTagGroup";
 const { Option } = Select;
@@ -12,8 +12,6 @@ const UserModal = props => {
     form,
     visiableFormUserModal,
     setvisiableFormUserModal,
-    users,
-    setUsers,
     userSelected
   } = props;
   const { getFieldDecorator } = form;

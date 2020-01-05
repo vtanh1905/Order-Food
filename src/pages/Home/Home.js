@@ -37,7 +37,7 @@ function Order() {
       <div style={{width: '60%', height: '70%', position: 'fixed', top: '10%', left: '20%', zIndex: 3 }}>
       <div className="container">
           <Row><Avatar size={100} src="https://image.flaticon.com/icons/png/512/2362/2362817.png" shape="square" style={{ marginBottom: 20 }}></Avatar></Row>
-          <Row><h1 style={{ color: 'black' }}>Chào mừng bạn đến với Lunch App</h1></Row>
+          {/* <Row><h1 style={{ color: 'black' }}>Chào mừng bạn đến với Lunch App</h1></Row> */}
           <Divider></Divider>
           <Row style={{ width: '100%', marginTop: 10, height: '40%' }}>
             <Col span={8} offset={2} style={{ height: '40%' }}>
