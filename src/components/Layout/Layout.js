@@ -44,7 +44,6 @@ export default class LayoutHeader extends Component {
             <Form inline>
               <Select defaultValue="lunch" style={{ width: 150 }} onChange={this.handleChange}>
                 <Option value="lunch">Lunch meal</Option>
-                <Option value="tea">Tea break</Option>
               </Select>
               <Dropdown overlay={this.menu}>
                 <Avatar className="ml-3" size="large" icon="user" />

@@ -610,7 +610,7 @@ class Order extends React.Component {
               </TabPane>
             </Tabs>
             <Input
-              style={{ position: 'absolute', top: 170, right: 100, color: 'black', width: 200 }}
+              style={{ position: 'absolute', top: 130, right: 100, color: 'black', width: 200 }}
               defaultValue={moment().format('YYYY-MM-DD')} readOnly icon="Date"
               prefix={<Icon type="calendar" style={{ color: 'rgba(0,0,0,.25)' }} />}
             />
