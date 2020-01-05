@@ -21,24 +21,7 @@ const dataUser = [
       "Bún đặc sản của xứ Huế, trong nước dùng có một ít mắm ruốc, góp phần làm nên hương vị rất riêng",
     type: "MAIN",
     cost: 37000,
-    options: [
-      {
-        id: 1,
-        name: "Bún thêm"
-      },
-      {
-        id: 2,
-        name: "Rau thêm"
-      },
-      {
-        id: 3,
-        name: "Thịt bò thêm"
-      },
-      {
-        id: 3,
-        name: "Rau trụng"
-      }
-    ],
+    options: ["Bún thêm", "Rau thêm", "Thịt bò thêm", "Rau trụng"],
     requires: [
       {
         id: 1,
@@ -56,20 +39,7 @@ const dataUser = [
       "Được làm từ bột gạo, bột mì, hoặc bột sắn hoặc bột gạo pha bột sắn cán thành tấm và cắt ra thành sợi to và ngắn với nước dùng được nấu từ tôm, cá, giò heo... thêm gia vị tùy theo từng loại",
     type: "MAIN",
     cost: 37000,
-    options: [
-      {
-        id: 1,
-        name: "Bánh canh thêm"
-      },
-      {
-        id: 2,
-        name: "Giò thêm"
-      },
-      {
-        id: 3,
-        name: "Chả thêm"
-      }
-    ],
+    options: ["Bánh canh thêm", "Giò thêm", "Chả thêm"],
     requires: [
       {
         id: 1,
@@ -86,20 +56,7 @@ const dataUser = [
     description: "Bún và chả cá nướng trộn nước mắm, rau sống",
     type: "MAIN",
     cost: 37000,
-    options: [
-      {
-        id: 1,
-        name: "Bún thêm"
-      },
-      {
-        id: 2,
-        name: "Ray thêm"
-      },
-      {
-        id: 3,
-        name: "Chả thêm"
-      }
-    ],
+    options: ["Bún thêm", "Ray thêm", "Chả thêm"],
     requires: [
       {
         id: 1,
@@ -116,20 +73,7 @@ const dataUser = [
     description: "Bún ăn với thịt nướng cùng nước mắm và rau sống kiểu Huế.",
     type: "MAIN",
     cost: 35000,
-    options: [
-      {
-        id: 1,
-        name: "Bún thêm"
-      },
-      {
-        id: 2,
-        name: "Rau thêm"
-      },
-      {
-        id: 3,
-        name: "Thịt nướng thêm"
-      }
-    ],
+    options: ["Bún thêm", "Rau thêm", "Thịt nướng thêm"],
     requires: [
       {
         id: 1,
@@ -147,24 +91,7 @@ const dataUser = [
       "Bánh hủ tiếu chan nước dùng với thịt băm nhỏ, lòng heo nấu cùng. Sau đó trụng sơ bánh hủ tiếu với nước dùng, rồi cho các nguyên liệu phụ vào như giá đỗ, hẹ, thịt băm cùng lòng lợn vào",
     type: "MAIN",
     cost: 32000,
-    options: [
-      {
-        id: 1,
-        name: "Thêm vắt mì"
-      },
-      {
-        id: 2,
-        name: "Bánh hủ tiếu thêm"
-      },
-      {
-        id: 3,
-        name: "Thịt heo thêm"
-      },
-      {
-        id: 4,
-        name: "Rau thêm"
-      }
-    ],
+    options: ["Thêm vắt mì", "Bánh hủ tiếu thêm", "Thịt heo thêm", "Rau thêm"],
     requires: [
       {
         id: 1,
@@ -182,24 +109,7 @@ const dataUser = [
       "Được làm từ sợi mì bằng bột gạo xay mịn và tráng thành từng lớp bánh mỏng, sau đó thái theo chiều ngang để có những sợi mì mỏng khoảng 2mm. Sợi mì làm bằng bột mỳ được trộn thêm một số phụ gia cho đạt độ dòn, dai. Dưới lớp mì là các loại rau sống, trên mì là thịt heo nạc, tôm, thịt gà cùng với nước dùng",
     type: "MAIN",
     cost: 42000,
-    options: [
-      {
-        id: 1,
-        name: "Thêm mì"
-      },
-      {
-        id: 2,
-        name: "Rau thêm"
-      },
-      {
-        id: 3,
-        name: "Thịt heo thêm"
-      },
-      {
-        id: 4,
-        name: "Bánh tráng thêm"
-      }
-    ],
+    options: ["Thêm mì", "Rau thêm", "Thịt heo thêm", "Bánh tráng thêm"],
     requires: [
       {
         id: 1,
@@ -217,24 +127,7 @@ const dataUser = [
       "Là một trong những món ăn đặc trưng nhất cho ẩm thực Việt Nam. Thành phần chính của phở là bánh phở và nước dùng (hay nước lèo theo cách gọi miền Nam) cùng với thịt bò hoặc gà cắt lát mỏng. Ngoài ra còn kèm theo các gia vị như: tương, tiêu, chanh, nước mắm, ớt,...",
     type: "MAIN",
     cost: 39000,
-    options: [
-      {
-        id: 1,
-        name: "Thịt bò"
-      },
-      {
-        id: 2,
-        name: "Thịt gà"
-      },
-      {
-        id: 3,
-        name: "Thêm phở"
-      },
-      {
-        id: 4,
-        name: "Rau thêm"
-      }
-    ],
+    options: ["Thịt bò", "Thịt gà", "Thêm phở", "Rau thêm"],
     requires: [
       {
         id: 1,
@@ -250,24 +143,7 @@ const dataUser = [
     description: "Bún ăn với đậu rán và mắm tôm",
     type: "MAIN",
     cost: 37000,
-    options: [
-      {
-        id: 1,
-        name: "Bún thêm"
-      },
-      {
-        id: 2,
-        name: "Đậu thêm"
-      },
-      {
-        id: 3,
-        name: "Chả thêm"
-      },
-      {
-        id: 4,
-        name: "Rau thêm"
-      }
-    ],
+    options: ["Bún thêm", "Đậu thêm", "Chả thêm", "Rau thêm"],
     requires: [
       {
         id: 1,
@@ -284,20 +160,7 @@ const dataUser = [
     description: "Mì xào chín giòn với trứng, rau, hải sản...",
     type: "MAIN",
     cost: 38000,
-    options: [
-      {
-        id: 1,
-        name: "Mì thêm"
-      },
-      {
-        id: 2,
-        name: "Rau thêm"
-      },
-      {
-        id: 3,
-        name: "Thịt thêm"
-      }
-    ],
+    options: ["Mì thêm", "Rau thêm", "Thịt thêm"],
     requires: [
       {
         id: 1,
@@ -481,6 +344,7 @@ function Index() {
         thumbUrl: record.src
       }
     ];
+    // console.log({ record, users });
     return (
       <Upload
         showUploadList={{ showDownloadIcon: false, showRemoveIcon: false }}
@@ -504,7 +368,7 @@ function Index() {
     {
       title: "Món thêm",
       dataIndex: "options",
-      render: text => text.map(i => <li key={i.id}>{i.name}</li>)
+      render: text => text.map(i => <li key={i}>{i}</li>)
     },
     {
       title: "Loại món ăn",
@@ -547,7 +411,7 @@ function Index() {
           <Popconfirm
             title="Bạn có muốn xóa không?"
             onConfirm={() => {
-              setUsers(users.filter(user => user.username !== item.username));
+              setUsers(users.filter(user => user.id !== item.id));
               notification.success({
                 message: "Xóa tài khoản thành công"
               });

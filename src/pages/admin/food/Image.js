@@ -28,6 +28,7 @@ class Avatar extends React.Component {
       loading: false,
       imageUrl: this.props.imageUrl
     };
+    this.props.handle(this.props.imageUrl);
   }
 
   handleChange = info => {
