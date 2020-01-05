@@ -5,6 +5,7 @@ import Login from '../../pages/Login/Login';
 import Profile from '../../pages/Profile/Profile';
 import NotFound from '../../pages/NotFound/NotFound';
 import Admin from '../../pages/admin';
+import Order from '../../pages/Order/Order';
 
 /**
 |--------------------------------------------------
@@ -19,6 +20,13 @@ export default [
     auth: 1,
     redirect: '/login',
     component: () => <Home />,
+  },
+  {
+    path: '/order',
+    exact: true,
+    auth: 1,
+    redirect: '/login',
+    component: () => <Order />,
   },
   {
     path: '/admin',
