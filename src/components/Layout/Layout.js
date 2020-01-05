@@ -46,7 +46,7 @@ export default class LayoutHeader extends Component {
               //   top: `10px`,
               //   left: `10px`
             // }}
-            />
+            /> Lunch App
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
