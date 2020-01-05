@@ -31,7 +31,9 @@ class Login extends React.Component {
         phone: '0123456789',
         address: 'Hồ Chí Minh',
         url: '',
-
+        numberMain: 1,
+        numberDessert: 1,
+        myFood: [],
       },
       {
         id: 2,
@@ -43,6 +45,10 @@ class Login extends React.Component {
         phone: '0123456789',
         address: 'Hồ Chí Minh',
         url: '',
+        numberMain: 1,
+        numberDessert: 1,
+        myFood: [],
+
       },
       {
         id: 3,
@@ -54,6 +60,9 @@ class Login extends React.Component {
         phone: '0123456789',
         address: 'Hồ Chí Minh',
         url: '',
+        numberMain: 1,
+        numberDessert: 1,
+        myFood: [],
       },
       {
         id: 4,
@@ -65,6 +74,9 @@ class Login extends React.Component {
         phone: '0123456789',
         address: 'Hồ Chí Minh',
         url: '',
+        numberMain: 1,
+        numberDessert: 1,
+        myFood: [],
       }
     ];
     const users = localStorage.getItem("users");

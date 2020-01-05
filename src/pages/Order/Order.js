@@ -429,6 +429,14 @@ class Order extends React.Component {
     this.handleCloseDrawer = this.handleCloseDrawer.bind(this);
   }
 
+  componentWillMount() {
+    const user = JSON.parse(localStorage.getItem('user'));
+    this.setState({
+      numberMain: user.numberMain,
+      numberDessert: user.numberDessert,
+    });
+  }
+
   handleClickFoods(value) {
     this.setState({
       clickID: value,
@@ -476,7 +484,22 @@ class Order extends React.Component {
             ordered,
             numberMain: tab === 'MAIN' ? numberMain - 1 : numberMain,
             numberDessert: tab === 'DESSERT' ? numberDessert - 1 : numberDessert,
-          })
+          },() => {
+            let user = JSON.parse(localStorage.getItem('user'));
+            user.numberMain = this.state.numberMain;
+            user.numberDessert = this.state.numberDessert;
+            user.myFood.push(this.state.foods[this.state.clickID - 1]);
+            localStorage.setItem('user', JSON.stringify(user));
+            let users = JSON.parse(localStorage.getItem('users'));
+            for (let index = 0; index < users.length; index++) {
+              let element = users[index];
+              if(element.username === user.username) {
+                users[index] = user;
+              }
+            }
+            localStorage.setItem('users', JSON.stringify(users));
+          });
+          
         } else if(tab === 'MAIN' && numberMain === 0) {
           this.openNotificationWithIcon('error', 'Số lượng món chính trong ngày của bạn đã hết!');
         } else if(tab === 'DESSERT' && numberMain === 0) {

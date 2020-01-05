@@ -24,7 +24,7 @@ export default class LayoutHeader extends Component {
         </Menu.Item>
         <Menu.Divider />
         <Menu.Item key="1">
-        <a className="d-flex align-items-center pr-5 btn-outline-danger" href='/' onClick={() => {localStorage.clear()}}>
+        <a className="d-flex align-items-center pr-5 btn-outline-danger" href='/' onClick={() => {localStorage.removeItem('user')}}>
           <Icon type="logout" style={{marginRight: 8}} /> Log out
           </a>
         </Menu.Item>
