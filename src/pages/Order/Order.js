@@ -420,7 +420,7 @@ class Order extends React.Component {
       clickID: -1,
       ordered: [],
       numberMain: 1,
-      numberDessert: 3,
+      numberDessert: 1,
       tab: 'MAIN',
     }
 
@@ -518,7 +518,7 @@ class Order extends React.Component {
 
     return (
       <LayoutHeader>
-        <Layout style={{ padding: '24px 0', background: '#fff' }} className="home">
+        <Layout style={{ padding: '24px', background: '#fff' }} className="home">
           <Sider width={"25%"} style={{ background: '#fff', borderRight: '1px solid #d2d2d2', paddingRight: 20, marginTop: 2 }}>
             <h3>Ordered Foods:</h3>
             <Divider></Divider>

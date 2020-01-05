@@ -72,45 +72,45 @@ class Profile extends Component {
             </Modal>
           </div>
           <div className="profile-info">
-          <Form.Item id="fullname" label="Họ tên" >
-            {getFieldDecorator('fullname', {
-              rules: [{ required: true, message: 'Vui lòng nhập họ tên' }],
-            })(
-              <Input required={true}
-                prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                placeholder="Họ tên"
-              />,
-            )}
-          </Form.Item>
-          <Form.Item id="phone" label="Số điện thoại" >
-            {getFieldDecorator('phone', {
-              rules: [{ required: true, message: 'Vui lòng nhập số điện thoại' }],
-            })(
-              <Input
-                prefix={<Icon type="phone" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                type="text"
-                placeholder="Số điện thoại"
+            <Form.Item id="fullname" label="Họ tên" >
+              {getFieldDecorator('fullname', {
+                rules: [{ required: true, message: 'Vui lòng nhập họ tên' }],
+              })(
+                <Input required={true}
+                  prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                  placeholder="Họ tên"
+                />,
+              )}
+            </Form.Item>
+            <Form.Item id="phone" label="Số điện thoại" >
+              {getFieldDecorator('phone', {
+                rules: [{ required: true, message: 'Vui lòng nhập số điện thoại' }],
+              })(
+                <Input
+                  prefix={<Icon type="phone" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                  type="text"
+                  placeholder="Số điện thoại"
 
-              />,
-            )}
-          </Form.Item>
-          <Form.Item id="address" label="Địa chỉ" >
-            {getFieldDecorator('address', {
-              rules: [{ required: true, message: 'Vui lòng nhập địa chỉ' }],
-            })(
-              <Input
-                prefix={<Icon type="home" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                type="text"
-                placeholder="Địa chỉ"
-              />,
-            )}
-          </Form.Item>
-          <Form.Item>
-            <Button type="primary" htmlType="submit" className="login-form-button" style={{ width: '100%'}}>
-              Cập nhật
+                />,
+              )}
+            </Form.Item>
+            <Form.Item id="address" label="Địa chỉ" >
+              {getFieldDecorator('address', {
+                rules: [{ required: true, message: 'Vui lòng nhập địa chỉ' }],
+              })(
+                <Input
+                  prefix={<Icon type="home" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                  type="text"
+                  placeholder="Địa chỉ"
+                />,
+              )}
+            </Form.Item>
+            <Form.Item>
+              <Button type="primary" htmlType="submit" className="login-form-button" style={{ width: '100%' }}>
+                Cập nhật
             </Button>
-          </Form.Item>
-        </div>
+            </Form.Item>
+          </div>
         </div>
       </Layout>
     )
