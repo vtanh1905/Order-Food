@@ -440,7 +440,7 @@ function Index() {
   return (
     <div>
       <h3 style={{ padding: "10px", textAlign: "center" }}>
-        Tài khoản{" "}
+        Danh sách món ăn
         <Button
           type="primary"
           icon="plus"

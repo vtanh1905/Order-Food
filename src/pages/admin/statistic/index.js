@@ -33,7 +33,7 @@ class Chart extends React.Component {
               money: fakemoney[i - 1],
             });
           }
-          const fakemoney2 = [130000, 1500000, 2500000, 3000000, 7000000, 4000000];
+          const fakemoney2 = [1300000, 1500000, 2500000, 3000000, 5000000, 4000000];
 
           const data2 = [];
           for (let i = 1; i<= 6; i++) {
@@ -74,12 +74,18 @@ class Chart extends React.Component {
             <Select.Option value="month">Tháng</Select.Option>
             <Select.Option value="date">Ngày</Select.Option>
           </Select>
+          <span className="ml-3">Xuất báo cáo theo: </span>
+          <Select defaultValue="CSV" style={{ width: 100, marginLeft: 20 }}>
+            <Select.Option value="CSV">CSV</Select.Option>
+            <Select.Option value="EXCEL">EXCEL</Select.Option>
+            <Select.Option value="PDF">PDF</Select.Option>
+          </Select>
         </div>
       );
   
       return (<div>
         <Layout style={{ marginTop: 10 }}>
-          <Card title="Thống kê doanh thu" bordered={false} extra={mselect}>
+          <Card title="Thống kê chi phí" bordered={false} extra={mselect}>
             {loading ? <Spin /> : <LineChart width={1080} height={600} data={type === 'month' ? data : dataDate}
               margin={{ top: 5, right: 30, left: 20, bottom: 15 }}>
               <CartesianGrid strokeDasharray="5 5" />
