@@ -36,7 +36,7 @@ export default class LayoutHeader extends Component {
     return (
       <Layout className="layout">
         <Navbar className="shadow" bg="light" expand="lg">
-          <Navbar.Brand href="/">React-Bootstrap</Navbar.Brand>
+          <Navbar.Brand href="/">LOGO</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
