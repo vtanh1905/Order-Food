@@ -41,7 +41,7 @@ class Login extends React.Component {
               description = 'Login Successful!';
               localStorage.setItem("user", username)
               // history.push('/');
-              setTimeout(() => window.location.replace('/admin'), 1500);
+              window.location.replace('/admin');
               type = 'success';
             } else {
               description = 'Login Failed';
@@ -54,7 +54,7 @@ class Login extends React.Component {
             this.setState({
               loading: false
             });
-          }, 1000);
+          }, 2000);
 
         });
       }
