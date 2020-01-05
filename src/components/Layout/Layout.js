@@ -36,17 +36,17 @@ export default class LayoutHeader extends Component {
     return (
       <Layout className="layout">
         <Navbar className="shadow" bg="light" expand="lg" style={{ zIndex: 3 }}>
-          <Navbar.Brand href="/">
-            <img
+          <Navbar.Brand href="/">LUNCH APP
+            {/* <img
               src="https://www.upsieutoc.com/images/2020/01/05/logo.jpg"
               alt="logo.jpg"
               border="0"
-              // style={{ width: `50%`, height: `50%` }}
-              style={{position: `absolute`,
-                top: `10px`,
-                left: `10px`
-            }}
-            />{" "}
+              style={{ width: `50%`, height: `50%` }}
+              // style={{position: `absolute`,
+              //   top: `10px`,
+              //   left: `10px`
+            // }}
+            /> */}
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
