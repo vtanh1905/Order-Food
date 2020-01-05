@@ -1,12 +1,18 @@
 #components-layout-demo-top .logo {
-    width: 120px;
-    height: 31px;
-    background: rgba(255, 255, 255, 0.2);
-    margin: 16px 24px 16px 0;
-    float: left;
-  }
-  
-  .fill-content{
-    min-height: calc(100vh - 64px - 100px)!important;
-    margin: 30px;
-  }
+  width: 120px;
+  height: 31px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 16px 24px 16px 0;
+  float: left;
+}
+
+.fill-content {
+  min-height: calc(100vh - 64px - 100px) !important;
+  margin: 30px;
+  margin-top: 80px;
+}
+
+
+.navbar {
+  background-color: #FF8B36 !important;
+}
