@@ -422,6 +422,7 @@ class Order extends React.Component {
       numberMain: 1,
       numberDessert: 1,
       tab: 'MAIN',
+      loading: false,
     }
 
     this.handleClickFoods = this.handleClickFoods.bind(this);
@@ -500,9 +501,13 @@ class Order extends React.Component {
   }
 
   handleSubmitFood = () => {
-    this.setState({ ordered: [] }, () => {
-      this.openNotificationWithIcon('success', 'The Foods have been ordered Sucessfully!')
-    })
+    this.setState({ loading: true }, () => {
+      setTimeout(() => {
+        this.setState({ ordered: [], loading: false }, () => {
+          this.openNotificationWithIcon('success', 'The Foods have been ordered Sucessfully!')
+        });
+      }, 2000)
+    });
   }
 
   openNotificationWithIcon = (type, value) => {
@@ -513,14 +518,14 @@ class Order extends React.Component {
   }
 
   render() {
-    const { foods, visible, clickID, ordered } = this.state;
+    const { foods, visible, clickID, ordered, loading } = this.state;
     const { getFieldDecorator } = this.props.form;
 
     return (
       <LayoutHeader>
         <Layout style={{ padding: '24px', background: '#fff' }} className="home">
           <Sider width={"25%"} style={{ background: '#fff', borderRight: '1px solid #d2d2d2', paddingRight: 20, marginTop: 2 }}>
-            <h3>Ordered Foods:</h3>
+            <h3>Các món đã chọn:</h3>
             <Divider></Divider>
             <List
               itemLayout="horizontal"
@@ -550,7 +555,7 @@ class Order extends React.Component {
                 </List.Item>
               )}
             />,
-            {ordered.length > 0 && <Button style={{ width: '100%' }} type="primary" ghost onClick={this.handleSubmitFood} className="login-form-button">Submit</Button>}
+            {ordered.length > 0 && <Button style={{ width: '100%' }} type="primary" ghost onClick={this.handleSubmitFood} className="login-form-button" loading={loading}>Submit</Button>}
 
           </Sider>
           <Content style={{ padding: '0 24px', minHeight: 280 }}>
@@ -637,7 +642,7 @@ class Order extends React.Component {
                   </Row>
                 </Col>
               </Row>
-              <Divider orientation="left">Optional</Divider>
+              <Divider orientation="left">Món thêm</Divider>
               <Row>
                 {foods[clickID - 1].options.map((el) => (<Col key={el.id} style={{ marginTop: 10 }}>
                   {getFieldDecorator(`option${el.id}`, {
@@ -648,7 +653,7 @@ class Order extends React.Component {
 
                 ))}
               </Row>
-              <Divider orientation="left">Note</Divider>
+              <Divider orientation="left">Ghi chú</Divider>
               <Row>
                 {getFieldDecorator('note', {
 
