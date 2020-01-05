@@ -547,7 +547,7 @@ class Order extends React.Component {
 
   openNotificationWithIcon = (type, value) => {
     notification[type]({
-      message: 'Result',
+      message: type === 'success' ? 'Thành công' : 'Lỗi',
       description: value,
     });
   }
@@ -650,7 +650,8 @@ class Order extends React.Component {
               </TabPane>
             </Tabs>
             <Input
-              style={{ position: 'absolute', top: 130, right: 100, color: 'black', width: 200 }}
+              disabled
+              style={{ position: 'absolute', top: 130, right: 140, color: 'black', width: 150 }}
               defaultValue={moment().format('YYYY-MM-DD')} readOnly icon="Date"
               prefix={<Icon type="calendar" style={{ color: 'rgba(0,0,0,.25)' }} />}
             />
@@ -659,7 +660,7 @@ class Order extends React.Component {
         <Drawer
           width={'35%'}
           className="myDrawer"
-          title="Food Detail Information"
+          title="Chi tiết món ăn"
           placement="right"
           onClose={this.handleCloseDrawer}
           visible={visible}

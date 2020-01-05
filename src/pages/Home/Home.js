@@ -1,6 +1,6 @@
 import React from 'react'
 import LayoutHeader from '../../components/Layout/Layout';
-import { Carousel, Avatar, Row, Divider, Col, Card } from 'antd';
+import { Carousel, Row, Divider, Col, Card, Avatar } from 'antd';
 import { useHistory } from "react-router-dom";
 import './style.css';
 
@@ -8,7 +8,7 @@ function Order() {
   let history = useHistory();
 
   const handleClickFood = (index) => {
-    if(index === 1) {
+    if (index === 1) {
       history.push('/order');
     }
     else {
@@ -31,7 +31,6 @@ function Order() {
         <div>
           <img src="https://initiate.alphacoders.com/images/117/stretched-1920-1080-117895.jpg?8812" alt=""></img>
         </div>
-        
       </Carousel>
       <div style={{width: '100%', height: '100%', position: 'absolute', top: 55, left: '0%', zIndex: 1, background: 'black', opacity: 0.3 }}></div>
       {/* <div style={{width: '100%', height: '100%', position: 'fixed', top: 55, left: '0%', zIndex: 2, background: 'black', opacity: 0.3 }}></div> */}
@@ -66,13 +65,13 @@ function Order() {
             </Col>
           </Row>
           <Row className='bot' style={{ paddingTop: 50 }}></Row>
-          
-          
+
+
         </div>
       </div>
 
     </LayoutHeader>
-      
+
   )
 }
 
