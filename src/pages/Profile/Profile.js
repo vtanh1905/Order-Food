@@ -1,12 +1,8 @@
 import React, { Component } from 'react'
-import { Upload, Icon, Modal, Form, Input, Select, Button, message, Menu, Layout } from 'antd';
+import { Upload, Icon, Modal, Form, Input, Button } from 'antd';
 
-import LayoutDefault from '../../components/Layout/Layout'
+import Layout from '../../components/Layout/Layout'
 import './Profile.css'
-
-const { Option } = Select;
-const { SubMenu } = Menu;
-const { Content, Sider } = Layout;
 
 function getBase64(file) {
   return new Promise((resolve, reject) => {
@@ -21,7 +17,6 @@ class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      page: '1',
       previewVisible: false,
       previewImage: '',
       fileList: [],
@@ -48,45 +43,19 @@ class Profile extends Component {
     this.setState({ fileList: newFileList })
   };
 
-  handleSubmit = e => {
-    e.preventDefault();
-    this.props.form.validateFieldsAndScroll((err, values) => {
-      if (!err) {
-        console.log('Received values of form: ', values);
-        message.loading('Updating...', 2, () => message.success('Update successful'));
-      }
-    });
-  };
-
-  handleMenuChange = e => {
-    console.log('click ', e);
-    this.setState({
-      page: e.key,
-    });
-  };
-
-  compareToFirstPassword = (rule, value, callback) => {
-    const { form } = this.props;
-    if (value && value !== form.getFieldValue('password')) {
-      callback('Two passwords that you enter is inconsistent!');
-    } else {
-      callback();
-    }
-  };
-
   render() {
     const { previewVisible, previewImage, fileList } = this.state;
     const { getFieldDecorator } = this.props.form;
     const uploadButton = (
       <div>
-        <Icon type="plus" style={{ fontSize: 30 }} />
-        <div className="ant-upload-text" style={{ fontSize: 20 }}>Upload</div>
+        <Icon type="plus" />
+        <div className="ant-upload-text">Upload</div>
       </div>
     );
 
     return (
-      <Layout>
-        <div className="profile">
+      <Layout className="profile">
+        <div className="profile-picture">
           <Upload
             className="d-flex justify-content-center"
             action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
@@ -101,7 +70,7 @@ class Profile extends Component {
             <img alt="example" style={{ width: '100%' }} src={previewImage} />
           </Modal>
         </div>
-        <div>
+        <div className="profile-info">
           <Form.Item id="fullname" label="Họ tên" >
             {getFieldDecorator('fullname', {
               rules: [{ required: true, message: 'Vui lòng nhập họ tên' }],
@@ -122,18 +91,6 @@ class Profile extends Component {
                 placeholder="Số điện thoại"
 
               />,
-            )}
-          </Form.Item>
-          <Form.Item id="city" label="Thành phố">
-            {getFieldDecorator('city', {
-              rules: [{ required: true, message: 'Vui lòng nhập thành phố' }],
-            })(
-              <Select placeholder="Thành phố" style={{width: 200}}>
-                <Option value="Hồ Chí Minh">Hồ Chí Minh</Option>
-                <Option value="Hà Nội">Hà Nội</Option>
-                <Option value="Đà Nẵng">Đà Nẵng</Option>
-                <Option value="Cần Thờ">Cần Thơ</Option>
-              </Select>,
             )}
           </Form.Item>
           <Form.Item id="address" label="Địa chỉ" >
@@ -159,4 +116,3 @@ class Profile extends Component {
 }
 
 export default Form.create({ name: 'profile' })(Profile);
-
