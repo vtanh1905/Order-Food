@@ -5,19 +5,19 @@ import UserModal from './UserModal'
 const dataUser = [
   {
     fullname: "Vũ Tuấn Anh",
-    username: 'anh.vu',
+    username: 'anhvt',
     role: 'ADMIN',
     isLocked: false
   },
   {
     fullname: "Trương Lê Việt Danh",
-    username: 'danh.trương',
+    username: 'danhtlv',
     role: 'ADMIN',
     isLocked: false
   },
   {
-    fullname: "vu.anh",
-    username: 'vu.anh',
+    fullname: "Hồ Ngọc Đỉnh",
+    username: 'dinhhn',
     role: 'USER',
     isLocked: false
   },

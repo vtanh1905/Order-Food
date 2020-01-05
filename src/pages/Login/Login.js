@@ -12,10 +12,69 @@ class Login extends React.Component {
 
     this.state = {
       loading: false,
-      forgetPass: false
+      forgetPass: false,
+      dataUser: [],
     }
     this.handleLogin = this.handleLogin.bind(this);
     this.handleClose = this.handleClose.bind(this);
+  }
+  
+  componentWillMount() {
+    const dataUser = [
+      {
+        id: 1,
+        fullname: "Vũ Tuấn Anh",
+        username: 'anhvt',
+        role: 'ADMIN',
+        isLocked: false,
+        password: '123123',
+        phone: '0123456789',
+        address: 'Hồ Chí Minh',
+        url: '',
+
+      },
+      {
+        id: 2,
+        fullname: "Trương Lê Việt Danh",
+        username: 'danhtlv',
+        role: 'ADMIN',
+        isLocked: false,
+        password: '13101998',
+        phone: '0123456789',
+        address: 'Hồ Chí Minh',
+        url: '',
+      },
+      {
+        id: 3,
+        fullname: "Hồ Ngọc Đỉnh",
+        username: 'dinhhn',
+        role: 'USER',
+        isLocked: false,
+        password: '123123',
+        phone: '0123456789',
+        address: 'Hồ Chí Minh',
+        url: '',
+      },
+      {
+        id: 4,
+        fullname: "Phùng Chí Cường",
+        username: 'cuongpc',
+        role: 'USER',
+        isLocked: false,
+        password: '123123',
+        phone: '0123456789',
+        address: 'Hồ Chí Minh',
+        url: '',
+      }
+    ];
+    const users = localStorage.getItem("users");
+    if(!users) {
+      localStorage.setItem("users", JSON.stringify(dataUser));
+      this.setState({ dataUser });
+    }
+    else {
+      this.setState({ dataUser: JSON.parse(localStorage.getItem('users')) });
+    }
   }
 
   handleLogin(e) {
@@ -28,23 +87,33 @@ class Login extends React.Component {
         }, () => {
           setTimeout(() => {
             const { username, password } = values;
+            const { dataUser } = this.state;
             let description = '';
             let type = '';
-            if (username === 'username' && password === '123456') {
-              description = 'Login Successful!';
-              localStorage.setItem("user", username)
-              // history.push('/');
-              window.location.replace('/');
-              type = 'success';
+            
+            for (let index = 0; index < dataUser.length; index++) {
+              const element = dataUser[index];
+              console.log(element);
+              
+              if (username === element.username && password === element.password && element.role === "USER") {
+                description = 'Đăng nhập thành công tài khoản người dùng!';
+                localStorage.setItem("user", JSON.stringify(element));
+                // history.push('/');
+                window.location.assign('/');
+                type = 'success';
+                break;
+              }
+              if (username === element.username && password === element.password && element.role === "ADMIN") {
+                description = 'Đăng nhập thành công tài khoản quản trị viên!';
+                localStorage.setItem("user", username)
+                window.location.assign('/admin');
+                type = 'success';
+                break;
+              }
             }
-            else if (username === 'admin' && password === 'admin') {
-              description = 'Login Successful!';
-              localStorage.setItem("user", username)
-              // history.push('/');
-              window.location.replace('/admin');
-              type = 'success';
-            } else {
-              description = 'Login Failed';
+
+            if (description === '') {
+              description = 'Đăng nhập thất bại, tên tài khoản hoặc mật khẩu sai';
               type = 'error';
             }
             notification[type]({
@@ -54,8 +123,9 @@ class Login extends React.Component {
             this.setState({
               loading: false
             });
+            
           }, 2000);
-
+          
         });
       }
     });
