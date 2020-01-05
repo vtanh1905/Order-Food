@@ -54,61 +54,63 @@ class Profile extends Component {
     );
 
     return (
-      <Layout className="profile">
-        <div className="profile-picture">
-          <Upload
-            className="d-flex justify-content-center"
-            action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-            listType="picture-card"
-            fileList={fileList}
-            onPreview={this.handlePreview}
-            onChange={this.handleChange}
-          >
-            {fileList.length >= 1 ? null : uploadButton}
-          </Upload>
-          <Modal visible={previewVisible} footer={null} onCancel={this.handleCancel}>
-            <img alt="example" style={{ width: '100%' }} src={previewImage} />
-          </Modal>
-        </div>
-        <div className="profile-info">
-          <Form.Item id="fullname" label="Họ tên" >
-            {getFieldDecorator('fullname', {
-              rules: [{ required: true, message: 'Vui lòng nhập họ tên' }],
-            })(
-              <Input required={true}
-                prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                placeholder="Họ tên"
-              />,
-            )}
-          </Form.Item>
-          <Form.Item id="phone" label="Số điện thoại" >
-            {getFieldDecorator('phone', {
-              rules: [{ required: true, message: 'Vui lòng nhập số điện thoại' }],
-            })(
-              <Input
-                prefix={<Icon type="phone" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                type="text"
-                placeholder="Số điện thoại"
+      <Layout>
+        <div className="profile">
+          <div className="profile-picture">
+            <Upload
+              className="d-flex justify-content-center"
+              action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+              listType="picture-card"
+              fileList={fileList}
+              onPreview={this.handlePreview}
+              onChange={this.handleChange}
+            >
+              {fileList.length >= 1 ? null : uploadButton}
+            </Upload>
+            <Modal visible={previewVisible} footer={null} onCancel={this.handleCancel}>
+              <img alt="example" style={{ width: '100%' }} src={previewImage} />
+            </Modal>
+          </div>
+          <div className="profile-info">
+            <Form.Item id="fullname" label="Họ tên" >
+              {getFieldDecorator('fullname', {
+                rules: [{ required: true, message: 'Vui lòng nhập họ tên' }],
+              })(
+                <Input required={true}
+                  prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                  placeholder="Họ tên"
+                />,
+              )}
+            </Form.Item>
+            <Form.Item id="phone" label="Số điện thoại" >
+              {getFieldDecorator('phone', {
+                rules: [{ required: true, message: 'Vui lòng nhập số điện thoại' }],
+              })(
+                <Input
+                  prefix={<Icon type="phone" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                  type="text"
+                  placeholder="Số điện thoại"
 
-              />,
-            )}
-          </Form.Item>
-          <Form.Item id="address" label="Địa chỉ" >
-            {getFieldDecorator('address', {
-              rules: [{ required: true, message: 'Vui lòng nhập địa chỉ' }],
-            })(
-              <Input
-                prefix={<Icon type="home" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                type="text"
-                placeholder="Địa chỉ"
-              />,
-            )}
-          </Form.Item>
-          <Form.Item>
-            <Button type="primary" htmlType="submit" className="login-form-button">
-              Cập nhật
+                />,
+              )}
+            </Form.Item>
+            <Form.Item id="address" label="Địa chỉ" >
+              {getFieldDecorator('address', {
+                rules: [{ required: true, message: 'Vui lòng nhập địa chỉ' }],
+              })(
+                <Input
+                  prefix={<Icon type="home" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                  type="text"
+                  placeholder="Địa chỉ"
+                />,
+              )}
+            </Form.Item>
+            <Form.Item>
+              <Button type="primary" htmlType="submit" className="login-form-button" style={{ width: '100%' }}>
+                Cập nhật
             </Button>
-          </Form.Item>
+            </Form.Item>
+          </div>
         </div>
       </Layout>
     )

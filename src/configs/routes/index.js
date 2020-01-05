@@ -3,9 +3,10 @@ import React from 'react';
 import Home from '../../pages/Home/Home';
 import Login from '../../pages/Login/Login';
 import Profile from '../../pages/Profile/Profile';
-import NotFound from '../../pages/NotFound/NotFound';
 import Admin from '../../pages/admin';
-
+import Order from '../../pages/Order/Order';
+import Confirm from '../../pages/Confirm/Confirm';
+import NotFound from '../../pages/NotFound/NotFound';
 /**
 |--------------------------------------------------
 | auth: -1 unlogin, 0 : unlogin && logined, 1: logined
@@ -19,6 +20,13 @@ export default [
     auth: 1,
     redirect: '/login',
     component: () => <Home />,
+  },
+  {
+    path: '/order',
+    exact: true,
+    auth: 1,
+    redirect: '/login',
+    component: () => <Order />,
   },
   {
     path: '/admin',
@@ -40,6 +48,13 @@ export default [
     auth: 1,
     redirect: '/login',
     component: () => <Profile />,
+  },
+  {
+    path: '/confirm',
+    exact: true,
+    auth: 1,
+    redirect: '/login',
+    component: () => <Confirm />,
   },
   {
     path: '/login',

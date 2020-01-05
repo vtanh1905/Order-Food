@@ -78,6 +78,8 @@ export default class LayoutHeader extends Component {
           <div style={{ background: "#fff" }} className="fill-content">
             {this.props.children}
           </div>
+        {/* <Content className='fill-content'>
+          <div style={{ background: '#fff' }} >{this.props.children}</div> */}
         </Content>
       </Layout>
     );

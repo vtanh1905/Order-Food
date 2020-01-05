@@ -891,4 +891,4 @@ class Home extends React.Component {
   }
 }
 
-export default Form.create()(Home);
+export default Home
