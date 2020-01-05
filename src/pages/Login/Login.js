@@ -104,17 +104,17 @@ class Login extends React.Component {
                   />,
                 )}
               </Form.Item>
-              <Form.Item>
+              <Form.Item style={{ textAlign: 'left'}}>
                 {getFieldDecorator('remember', {
                   valuePropName: 'checked',
                   initialValue: true,
                 })(<Checkbox style={{ color: 'white' }}>Remember me</Checkbox>)}
 
-              </Form.Item>
+              {/* </Form.Item>
               <a className="login-form-forgot" href="/forgetpassword" style={{ alignSelf: 'left', color: 'orange' }}>
                 Forgot your password?
                         </a>
-              <Form.Item>
+              <Form.Item> */}
 
                 <Button type="primary" htmlType="submit" className="login-form-button" style={{ width: '100%' }} loading={loading}>
                   Log in
