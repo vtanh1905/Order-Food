@@ -537,6 +537,7 @@ class Order extends React.Component {
             localStorage.setItem('users', JSON.stringify(users));
             this.setState({ ordered: [], loading: false }, () => {
               this.openNotificationWithIcon('success', 'Đặt món ăn thành công!')
+              window.location.replace('/confirm');
             });
           }, 2000)
         });

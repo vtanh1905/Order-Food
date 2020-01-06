@@ -48,7 +48,7 @@ const UserModal = (props) => {
   return (
     <div>
       <Drawer
-        title="Thêm tài khoản"
+        title={userSelected ? "Sửa tài khoản" : "Thêm tài khoản"}
         width={500}
         onClose={() => {
           setvisiableFormUserModal(false);
