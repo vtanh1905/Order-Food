@@ -1,6 +1,6 @@
 import React from 'react'
 import LayoutHeader from '../../components/Layout/Layout';
-import { Carousel, Row, Divider, Col, Card, Avatar } from 'antd';
+import { Carousel, Row, Divider, Col, Card } from 'antd';
 import { useHistory } from "react-router-dom";
 import './style.css';
 
@@ -17,7 +17,7 @@ function Order() {
   }
   return (
     <LayoutHeader style={{ width: '100%', height: '100%', overflow: 'hidden' }} >
-      <Carousel autoplay style={{ width: '100%', height: '100%', position: 'absolute', top: 55, left: 0, zIndex: 0 }} >
+      <Carousel autoplay style={{ width: '100%', height: '100%', position: 'absolute', top: -100, left: 0, zIndex: 0 }} >
         <div>
           <img src="https://initiate.alphacoders.com/images/105/stretched-1920-1080-1058544.jpg?9437" alt=""></img>
           {}
@@ -32,12 +32,12 @@ function Order() {
           <img src="https://initiate.alphacoders.com/images/117/stretched-1920-1080-117895.jpg?8812" alt=""></img>
         </div>
       </Carousel>
-      <div style={{width: '100%', height: '100%', position: 'absolute', top: 55, left: '0%', zIndex: 1, background: 'black', opacity: 0.3 }}></div>
+      {/* <div style={{ width: '100%', height: '100%', position: 'absolute', top: 55, left: '0%', zIndex: 1, background: 'black', opacity: 0.3 }}></div> */}
       {/* <div style={{width: '100%', height: '100%', position: 'fixed', top: 55, left: '0%', zIndex: 2, background: 'black', opacity: 0.3 }}></div> */}
       {/* <div style={{width: '60%', height: '70%', position: 'fixed', top: '10%', left: '20%', zIndex: 3 }}> */}
       <div className="homee">
-      <div className="container" style={{ zIndex: 2 }}>
-          <Row><Avatar size={100} src="https://image.flaticon.com/icons/png/512/2362/2362817.png" shape="square" style={{ marginBottom: 20 }}></Avatar></Row>
+        <div className="container" style={{ zIndex: 2 }}>
+          {/* <Row><Avatar size={100} src="https://image.flaticon.com/icons/png/512/2362/2362817.png" shape="square" style={{ marginBottom: 20 }}></Avatar></Row> */}
           <Row><h1 style={{ color: 'black' }}>Chào mừng bạn đến với Lunch App</h1></Row>
           <Divider></Divider>
           <Row style={{ width: '100%', marginTop: 10, height: '40%' }}>

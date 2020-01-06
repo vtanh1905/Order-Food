@@ -532,11 +532,11 @@ class Order extends React.Component {
       title: 'Xác nhận đơn hàng',
       content: 'Bạn có chắc chắn sẽ đặt đơn hàng này?',
       onOk: () => {
-        
         this.setState({ loading: true }, () => {
           setTimeout(() => {
             this.setState({ ordered: [], loading: false }, () => {
               this.openNotificationWithIcon('success', 'Đặt món ăn thành công!')
+              window.location.replace('/confirm');
             });
           }, 2000)
         });
