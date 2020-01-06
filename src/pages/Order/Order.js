@@ -484,20 +484,6 @@ class Order extends React.Component {
             ordered,
             numberMain: tab === 'MAIN' ? numberMain - 1 : numberMain,
             numberDessert: tab === 'DESSERT' ? numberDessert - 1 : numberDessert,
-          },() => {
-            let user = JSON.parse(localStorage.getItem('user'));
-            user.numberMain = this.state.numberMain;
-            user.numberDessert = this.state.numberDessert;
-            user.myFood.push(this.state.foods[this.state.clickID - 1]);
-            localStorage.setItem('user', JSON.stringify(user));
-            let users = JSON.parse(localStorage.getItem('users'));
-            for (let index = 0; index < users.length; index++) {
-              let element = users[index];
-              if(element.username === user.username) {
-                users[index] = user;
-              }
-            }
-            localStorage.setItem('users', JSON.stringify(users));
           });
           
         } else if(tab === 'MAIN' && numberMain === 0) {
@@ -532,9 +518,23 @@ class Order extends React.Component {
       title: 'Xác nhận đơn hàng',
       content: 'Bạn có chắc chắn sẽ đặt đơn hàng này?',
       onOk: () => {
-        
         this.setState({ loading: true }, () => {
           setTimeout(() => {
+            let user = JSON.parse(localStorage.getItem('user'));
+            user.numberMain = this.state.numberMain;
+            user.numberDessert = this.state.numberDessert;
+            this.state.ordered.forEach((el) => {
+              user.myFood.push(this.state.foods[el.id - 1]);
+            });
+            localStorage.setItem('user', JSON.stringify(user));
+            let users = JSON.parse(localStorage.getItem('users'));
+            for (let index = 0; index < users.length; index++) {
+              let element = users[index];
+              if(element.username === user.username) {
+                users[index] = user;
+              }
+            }
+            localStorage.setItem('users', JSON.stringify(users));
             this.setState({ ordered: [], loading: false }, () => {
               this.openNotificationWithIcon('success', 'Đặt món ăn thành công!')
             });

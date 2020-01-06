@@ -83,7 +83,9 @@ class Profile extends Component {
               user.fullname = fullname;
               user.phone = phone;
               user.address = address;
-              user.url = this.state.fileList[0];
+              if (this.state.fileList.length > 0) {
+                user.url = this.state.fileList[0];
+              }
               notification[type]({
                 message: 'Information',
                 description,
